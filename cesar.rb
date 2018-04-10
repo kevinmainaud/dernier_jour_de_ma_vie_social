@@ -4,14 +4,25 @@
 # Nous allons garder l'espacement entre les mots
 
 def chiffre_de_cesar(mystring, nb)
-  array = mystring.downcase.split('').map! do |letter|
-    letter.ord - 97
+
+  result = mystring.downcase.split('').map! do |lettre|
+
+    i = lettre.ord - 97
+    puts i
+      if (i+nb)>25 && i>=0 && i<=25
+        j = (i+nb)%25-1
+      elsif i>=0 && i<=25
+        j = i+nb
+      else
+        lettre.ord
+      end
+  end
+
+  print result
+
+
+  return result.map! {|lettre| (lettre.ord+97).chr}.join.capitalize
+
 end
 
-array.map { |figure|if figure+nb <25 figure += nb else figure2 && figure2 = nb-26-figure end}
-
-  return array.map! {|letter| letter.chr}.join
- end
-
-
-  print chiffre_de_cesar("abced", 5)
+print chiffre_de_cesar("Envahissons le village d'Astérix et Obélix", 5)

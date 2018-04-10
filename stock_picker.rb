@@ -9,12 +9,12 @@ def trader_du_dimanche (jours_trade)
 
   benef_base=0
   index_best_buy_and_sale = []
-  index_vente =jours_trade.size -1
+  index_vente = jours_trade.length-1
 
 #Cette boucle va permettre de passer au jour précédent via l'index
 while index_vente>0
 
-puts "jour référence: #{index_vente} "
+puts "test du jour de trade: #{index_vente} "
 
   index_achat = index_vente-1
 
@@ -28,11 +28,12 @@ while index_achat >= 0
   index_best_buy_and_sale [0] = index_achat
   index_best_buy_and_sale[1] = index_vente
 end
-inde_achat -=1
+index_achat -=1
 end
 index_vente -=1
 
 end
 print index_best_buy_and_sale
 end
-trader_du_dimanche ([6,3,8,5,2,9])
+trader_du_dimanche ([17,3,6,9,15,8,6,1,10])
+ puts ":sont les indexs d'achat et de vente pour optimiser son bénéfice."
